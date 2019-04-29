@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<web-app id="WebApp_ID" version="2.5"
+	xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+	<display-name>Atlanta Sharing Alliance Coordination System</display-name>
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>classpath*:spring-beans.xml</param-value>
+	</context-param>
+	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+	<listener>
+		<listener-class>org.springframework.web.context.request.RequestContextListener</listener-class>
+	</listener>
+	<filter>
+		<filter-name>SecurityFilter</filter-name>
+		<filter-class>edu.gatech.cs6400.team81.web.SecurityFilter</filter-class>
+	</filter>
+	<filter>
+		<filter-name>HttpStateFilter</filter-name>
+		<filter-class>edu.gatech.cs6400.team81.web.HttpStateFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>SecurityFilter</filter-name>
+		<url-pattern>*</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>HttpStateFilter</filter-name>
+		<url-pattern>*</url-pattern>
+	</filter-mapping>	
+	<servlet>
+		<servlet-name>Jersey Web Application</servlet-name>
+		<servlet-class>com.sun.jersey.spi.spring.container.servlet.SpringServlet</servlet-class>
+		<init-param>
+			<param-name>com.sun.jersey.api.json.POJOMappingFeature</param-name>
+			<param-value>true</param-value>
+		</init-param>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	<servlet>
+		<servlet-name>Logon Servlet</servlet-name>
+		<servlet-class>edu.gatech.cs6400.team81.web.LogonServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>Site Servlet</servlet-name>
+		<servlet-class>edu.gatech.cs6400.team81.web.SiteServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>Service Servlet</servlet-name>
+		<servlet-class>edu.gatech.cs6400.team81.web.ServiceServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>Web Reports Servlet</servlet-name>
+		<servlet-class>edu.gatech.cs6400.team81.web.WebReportServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>Soup Kitchen Servlet</servlet-name>
+		<servlet-class>edu.gatech.cs6400.team81.web.SoupKitchenServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>Wait List Servlet</servlet-name>
+		<servlet-class>edu.gatech.cs6400.team81.web.WaitListServlet</servlet-class>
+	</servlet>	
+	<servlet>
+		<servlet-name>Shelter Servlet</servlet-name>
+		<servlet-class>edu.gatech.cs6400.team81.web.ShelterServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>Home Servlet</servlet-name>
+		<servlet-class>edu.gatech.cs6400.team81.web.HomeServlet</servlet-class>
+	</servlet>	
+	<servlet>
+		<servlet-name>Item Servlet</servlet-name>
+		<servlet-class>edu.gatech.cs6400.team81.web.ItemServlet</servlet-class>
+	</servlet>	
+	<servlet>
+		<servlet-name>Make Food Bank Request Servlet</servlet-name>
+		<servlet-class>edu.gatech.cs6400.team81.web.MakeFoodBankRequestServlet</servlet-class>	
+	</servlet>
+	<servlet>
+		<servlet-name>View Food Bank Items Servlet</servlet-name>
+		<servlet-class>edu.gatech.cs6400.team81.web.ViewFoodBankItemsServlet</servlet-class>	
+	</servlet>	
+	<servlet>
+		<servlet-name>Requests Servlet</servlet-name>
+		<servlet-class>edu.gatech.cs6400.team81.web.RequestsServlet</servlet-class>
+	</servlet>	
+	<servlet-mapping>
+		<servlet-name>Jersey Web Application</servlet-name>
+		<url-pattern>/asacs-api/*</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>Logon Servlet</servlet-name>
+		<url-pattern>/LogonServlet</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>Site Servlet</servlet-name>
+		<url-pattern>/SiteServlet</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>Service Servlet</servlet-name>
+		<url-pattern>/ServiceServlet</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>Web Reports Servlet</servlet-name>
+		<url-pattern>/webreports/WebReportServlet</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>Soup Kitchen Servlet</servlet-name>
+		<url-pattern>/SoupKitchenServlet</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>Wait List Servlet</servlet-name>
+		<url-pattern>/WaitListServlet</url-pattern>
+	</servlet-mapping>	
+	<servlet-mapping>
+		<servlet-name>Shelter Servlet</servlet-name>
+		<url-pattern>/ShelterServlet</url-pattern>
+	</servlet-mapping>		
+	<servlet-mapping>
+		<servlet-name>Home Servlet</servlet-name>
+		<url-pattern>/HomeServlet</url-pattern>
+	</servlet-mapping>	
+	<servlet-mapping>
+		<servlet-name>Item Servlet</servlet-name>
+		<url-pattern>/ItemServlet</url-pattern>
+	</servlet-mapping>	
+	<servlet-mapping>
+		<servlet-name>Make Food Bank Request Servlet</servlet-name>
+		<url-pattern>/MakeFoodBankRequestServlet</url-pattern>	
+	</servlet-mapping>			
+	<servlet-mapping>
+		<servlet-name>View Food Bank Items Servlet</servlet-name>
+		<url-pattern>/ViewItemsServlet</url-pattern>	
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>Requests Servlet</servlet-name>
+		<url-pattern>/RequestsServlet</url-pattern>	
+	</servlet-mapping>		
+	<welcome-file-list>
+		<welcome-file>index.jsp</welcome-file>
+		<welcome-file>index.html</welcome-file>
+	</welcome-file-list>
+</web-app>

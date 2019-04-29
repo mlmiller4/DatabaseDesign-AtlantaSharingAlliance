@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!DOCTYPE Configure PUBLIC "-//Mort Bay Consulting//DTD Configure//EN" "http://jetty.mortbay.org/configure.dtd">
+<Configure class="org.mortbay.jetty.webapp.WebAppContext">
+  <New id="ASACSDatasource" class="org.mortbay.jetty.plus.naming.Resource">
+     <Arg>jdbc/asacsDS</Arg>
+     <Arg>
+        <!-- <New class="com.mysql.cj.jdbc.jdbc2.optional.MysqlDataSource"> -->
+        <New class="com.mysql.jdbc.jdbc2.optional.MysqlConnectionPoolDataSource">
+        <!-- 
+           <Set name="Url">jdbc:mysql://192.168.56.102:3306/ASACS</Set>
+           <Set name="User">asacsuser</Set>
+           <Set name="Password">ASACSpass123!!</Set>        
+         -->
+           <Set name="Url">jdbc:mysql://kentucky.cxjpgiq6bbkr.us-west-2.rds.amazonaws.com:3306/ASACS</Set>
+           <Set name="User">admin</Set>
+           <Set name="Password">password</Set>
+        </New>
+     </Arg>
+    </New>
+</Configure>
